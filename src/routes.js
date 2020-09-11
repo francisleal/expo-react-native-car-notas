@@ -4,13 +4,14 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-import { FontAwesome5 } from '@expo/vector-icons'
+import { FontAwesome5 } from '@expo/vector-icons';
 
 import Inicio from './pages/Inicio';
 import MinhaConta from './pages/MinhaConta';
 import MediaKm from './pages/MediaKm';
 import Gastos from './pages/Gastos';
 import Historico from './pages/Historico';
+import DadosVeiculo from './pages/DadosVeiculo';
 
 const Stack = createStackNavigator()
 const Tab = createBottomTabNavigator();
@@ -84,6 +85,7 @@ function Routes() {
             <Stack.Navigator initialRouteName="Início" screenOptions={{ headerShown: false }}>
                 <Stack.Screen options={headerStyle} name="Início" component={Tabs} />
                 <Stack.Screen options={headerStyle} name="Gastos" component={TabsGastos} />
+                <Stack.Screen options={headerStyle} name="DadosVeiculo" component={DadosVeiculo} />
             </Stack.Navigator>
         </NavigationContainer>
     );

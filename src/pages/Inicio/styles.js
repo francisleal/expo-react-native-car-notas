@@ -4,16 +4,7 @@ export default StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#fff',
-    },
-    main: {
-        padding: 16
-    },
-    titulo: {
-        paddingBottom: 16
-    },
-    tituloTexto: {
-        color: '#707070'
-    },
+    },   
     // botão
     btnAdicionarVeiculo: {
         backgroundColor: '#8257E6',
@@ -22,6 +13,7 @@ export default StyleSheet.create({
         height: 100,
         borderRadius: 3,
         borderWidth: 0,
+        marginBottom: 16,
 
        shadowColor: "#000",
         shadowOffset: {
@@ -44,7 +36,7 @@ export default StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         backgroundColor: '#fff',
-        height: 100,
+        height: 76,
     },
     cardNome: {
         color:'#000',
@@ -70,5 +62,8 @@ export default StyleSheet.create({
         color: '#8257E6',
         display: 'flex',
         textAlign: 'right',
+    },
+    list: {
+        marginBottom: 100
     }
 })

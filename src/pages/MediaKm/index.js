@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import { Text, View, TouchableOpacity, Alert } from 'react-native';
+import { Text, View, TouchableOpacity, Alert, StyleSheet } from 'react-native';
 
-import Header from '../../components/Header';
-import Card from '../../components/Card';
-import Input from '../../components/Input'
 import ButtonAction from '../../components/ButtonAction'
-
-import styles from './styles';
+import Header from '../../components/Header';
+import Input from '../../components/Input'
+import Card from '../../components/Card';
+import Main from '../../components/Main';
 
 function MediaKm() {
 
@@ -16,8 +15,13 @@ function MediaKm() {
 
     const handleCalcular = () => {
         const input = { km, lt };
-        const resposta = input.km / input.lt;
-        setResult(resposta.toFixed(2));
+
+        if (input.km === '' || input.lt === '') {
+            Alert.alert('Campo em branco');
+        } else {
+            const resposta = input.km / input.lt;
+            setResult(resposta.toFixed(2));
+        }
     }
 
     const AlertExemplo = () => {
@@ -80,49 +84,64 @@ function MediaKm() {
     return (
         <View style={styles.container}>
             <Header titulo={'Média Km/Litro'} />
-            <View style={styles.main}>
 
-                <View style={styles.section}>
-                    <View style={styles.titulo}>
-                        <Text style={styles.tituloTexto}>Consumo médio</Text>
-                    </View>
+            <Main titulo={'Consumo médio'}>
+                <Card>
+                    <View style={{ padding: 8 }}></View>
+                    <Input
+                        type='numeric'
+                        legend={'Quilômetros percorridos'}
+                        placeholder={'Km'}
+                        value={km}
+                        propsOnChangeText={km => setKm(km)}
+                    />
 
-                    <Card>
-                        <Input
-                            type='numeric'
-                            legend={'Quilômetros percorridos'}
-                            placeholder={'Km'}
-                            value={km}
-                            propsOnChangeText={km => setKm(km)}
-                        />
+                    <View style={{ padding: 8 }}></View>
 
-                        <View style={{ padding: 8 }}></View>
+                    <Input
+                        type='numeric'
+                        legend={'Litros'}
+                        placeholder={'Litros na bomba'}
+                        value={lt}
+                        propsOnChangeText={lt => setLt(lt)}
+                    />
 
-                        <Input
-                            type='numeric'
-                            legend={'Litros'}
-                            placeholder={'Litros na bomba'}
-                            value={lt}
-                            propsOnChangeText={lt => setLt(lt)}
-                        />
+                    <View style={{ padding: 8 }}></View>
 
-                        <View style={{ padding: 8 }}></View>
+                    <Text>Resultado</Text>
+                    <Text style={styles.result}>{result}</Text>
+                    <View style={{ padding: 8 }}></View>
+                </Card>
 
-                        <Text>Resultado</Text>
-                        <Text style={styles.result}>{result}</Text>
-                    </Card>
-
+                <View>
                     <Card>
                         <TouchableOpacity onPress={AlertExemplo}>
                             <Text style={styles.exemplo}>Exemplo</Text>
                         </TouchableOpacity>
                     </Card>
+                    <ButtonAction text={'Calcular'} onPressProps={handleCalcular} />
                 </View>
 
-                <ButtonAction text={'Calcular'} onPressProps={handleCalcular} />
-            </View>
+            </Main>
         </View>
     )
 }
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#fff',
+    },
+    result: {
+        color: '#8257E6',
+        paddingTop: 8,
+        fontSize: 16,
+    },
+    exemplo: {
+        color: '#8257E6',
+        textAlign: 'center',
+        fontWeight: 'bold'
+    },
+});
 
 export default MediaKm;

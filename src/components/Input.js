@@ -24,7 +24,7 @@ function Input(props) {
             marginTop: 10,
             borderWidth: 1.5,
             borderRadius: 3,
-            borderColor: '#bbb',
+            borderColor: '#ddd',
         },
         label: {
 

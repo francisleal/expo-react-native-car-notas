@@ -5,3 +5,11 @@ expo install react-native-gesture-handler react-native-reanimated react-native-s
 yarn add @react-navigation/stack
 
 yarn add @react-navigation/bottom-tabs
+
+### async-storage
+https://www.npmjs.com/package/@react-native-community/async-storage
+yarn add @react-native-community/async-storage
+
+> expo publish
+
+> expo build:android -t apk

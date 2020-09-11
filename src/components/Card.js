@@ -13,14 +13,17 @@ const styles = {
         backgroundColor: '#fff',
         borderRadius: 3,
         padding: 16,
-        marginBottom: 16,
+        marginBottom: 14,
+        marginTop: 2,
+        marginHorizontal: 1,
 
         borderWidth: 0,
-        shadowColor: "#000",
-        shadowOffset: { width: 0, height: 2, },
-        shadowOpacity: 0.25,
-        shadowRadius: 3.84,
-        elevation: 5,
+        borderColor: '#ddd',
+        // shadowColor: "#000",
+        // shadowOffset: { width: 0, height: 0, },
+        // shadowOpacity: 1,
+        // shadowRadius: 3,
+        elevation: 4,
     }
 }
 
