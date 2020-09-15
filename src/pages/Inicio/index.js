@@ -27,10 +27,15 @@ function Inicio() {
     async function handleListar() {
         let meuscarrossavenote = await getStorage('meuscarrossavenote');
         setListarCarros(JSON.parse(meuscarrossavenote));
+        console.log(JSON.parse(meuscarrossavenote));
     }
 
     function navigationAddNovoVeiculo() {
-        navigation.navigate('DadosVeiculo', {titulo: 'Adicionar novo veículo'});
+        navigation.navigate('DadosVeiculo', { titulo: 'Adicionar novo veículo' });
+    }
+
+    function navigationGastos(dados) {
+        navigation.navigate('Gastos', { dados });
     }
 
     return (
@@ -51,14 +56,21 @@ function Inicio() {
 
                         renderItem={({ item }) => (
                             <Card >
-                                <TouchableOpacity style={styles.cardTouchable}>
+                                <TouchableOpacity style={styles.cardTouchable} onPress={() => navigationGastos(item)}>
                                     <View style={styles.cardContainer}>
                                         <Text style={styles.cardNome}>{item.nome}</Text>
                                         <Text style={styles.cardPlaca}>{item.placa}</Text>
                                     </View>
+
                                     <View style={styles.cardOleoContainer}>
                                         <Text style={styles.cardProximaTroca}>Próxima troca de óleo</Text>
-                                        <Text style={styles.cardOleo}>79.998</Text>
+
+                                        {item.oleo ?
+                                            <Text style={styles.cardOleo}>{item.oleo}</Text>
+                                            :
+                                            <Text style={styles.cardOleo}>0</Text>
+                                        }
+
                                     </View>
                                 </TouchableOpacity>
                             </Card>

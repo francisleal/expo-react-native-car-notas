@@ -22,20 +22,21 @@ function Header(props) {
 
 const styles = {
     header: {
-        height: 70,
-        display: "flex",
         backgroundColor: '#8257E6',
         flexDirection: 'row',
         alignItems: 'center',
-        padding: 16
+        padding: 16,
+        height: 70,
     },
     buttonVoltar: {
-        paddingRight: 16
+        paddingRight: 16,
+        paddingBottom: 8,
+        paddingTop: 8,
     },
     texto: {
+        fontWeight: 'bold',
         color: '#fff',
         fontSize: 20,
-        fontWeight: 'bold'
     }
 }
 

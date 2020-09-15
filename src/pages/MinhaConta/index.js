@@ -23,9 +23,15 @@ function MinhaConta() {
     }, [isFocused]);
 
     async function handleListar() {
-        const meuscarrossavenote = await getStorage('meuscarrossavenote');
-        setListarCarros(JSON.parse(meuscarrossavenote));
-        // console.log(meuscarrossavenote);
+        const storage = await getStorage('meuscarrossavenote');
+
+        const meuscarrossavenote = JSON.parse(storage);
+
+        if(meuscarrossavenote.length === 0) {
+            navigation.navigate('DadosVeiculo', { titulo: 'Adicionar novo Veiculo'});
+        } else {
+            setListarCarros(meuscarrossavenote);
+        }       
     }
 
     async function handleExcluir(carro) {
@@ -34,10 +40,6 @@ function MinhaConta() {
         setListarCarros(excluirCarro);
 
         await updateStorage('meuscarrossavenote', excluirCarro);
-    }
-
-    function handleEditar(conta) {
-        navigation.navigate('DadosVeiculo', { titulo: 'Editar Veiculo'});
     }
 
     return (
@@ -68,7 +70,6 @@ function MinhaConta() {
                                                     <FontAwesome5 name={'pen'} size={18} color={'#8257E6'} />
                                                 </Card>
                                             </TouchableOpacity> */}
-
                                             <TouchableOpacity onPress={() => handleExcluir(item)}>
                                                 <Card>
                                                     <FontAwesome5 name={'trash'} size={18} color={'#8257E6'} />
