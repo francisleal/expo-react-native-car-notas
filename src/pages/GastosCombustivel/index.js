@@ -6,6 +6,7 @@ import { useNavigation } from '@react-navigation/native';
 import { getStorage, updateStorage } from '../../asyncstorage';
 
 import ButtonAction from '../../components/ButtonAction';
+import BarGastos from '../../components/BarGastos';
 import Header from '../../components/Header';
 import Input from '../../components/Input';
 import Main from '../../components/Main';
@@ -15,7 +16,6 @@ function GastosCombustivel({ route }) {
     const navigation = useNavigation();
 
     const [combustivel, setCombustivel] = useState('');
-
 
     async function handleSalvar() {
 
@@ -34,9 +34,7 @@ function GastosCombustivel({ route }) {
 
             await updateStorage(route.params.dados.id.toString(), atualizardb);
 
-            console.log(atualizardb);
-
-            // Alert.alert('salvo com sucesso');
+            Alert.alert('salvo com sucesso');
         }
     }
 
@@ -58,6 +56,7 @@ function GastosCombustivel({ route }) {
 
                 <ButtonAction text={'Salvar'} onPressProps={handleSalvar} />
             </Main>
+            <BarGastos id={route.params.dados.id} />
         </View>
     )
 }

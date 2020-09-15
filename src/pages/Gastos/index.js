@@ -5,8 +5,10 @@ import { useNavigation } from '@react-navigation/native';
 
 import { FontAwesome5 } from '@expo/vector-icons';
 
+import BarGastos from '../../components/BarGastos';
 import Header from '../../components/Header';
 import Main from '../../components/Main';
+
 
 function Gastos({ route }) {
 
@@ -60,6 +62,7 @@ function Gastos({ route }) {
                     </View>
                 </View>
             </Main>
+            <BarGastos home={true} id={route.params.dados.id} />
         </View>
     )
 }

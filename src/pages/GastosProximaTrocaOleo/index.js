@@ -6,17 +6,16 @@ import { useNavigation } from '@react-navigation/native';
 import { getStorage, updateStorage } from '../../asyncstorage';
 
 import ButtonAction from '../../components/ButtonAction';
+import BarGastos from '../../components/BarGastos';
 import Header from '../../components/Header';
 import Input from '../../components/Input';
 import Main from '../../components/Main';
 
 function GastosProximaTrocaOleo({ route }) {
 
-
     const navigation = useNavigation();
 
     const [km, setKm] = useState('');
-
 
     async function handleSalvar() {
         if (km === '') {
@@ -57,6 +56,7 @@ function GastosProximaTrocaOleo({ route }) {
 
                 <ButtonAction text={'Salvar'} onPressProps={handleSalvar} />
             </Main>
+            <BarGastos id={route.params.dados.id} />
         </View>
     )
 }

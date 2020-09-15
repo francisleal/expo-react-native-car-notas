@@ -27,7 +27,6 @@ function Inicio() {
     async function handleListar() {
         let meuscarrossavenote = await getStorage('meuscarrossavenote');
         setListarCarros(JSON.parse(meuscarrossavenote));
-        console.log(JSON.parse(meuscarrossavenote));
     }
 
     function navigationAddNovoVeiculo() {

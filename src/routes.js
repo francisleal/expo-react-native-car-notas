@@ -90,9 +90,10 @@ function Routes() {
 
     return (
         <NavigationContainer>
-            <Stack.Navigator initialRouteName="Início" screenOptions={{ headerShown: false }}>
+            <Stack.Navigator initialRouteName="Início" screenOptions={{ headerShown: false, animationEnabled: false }}>
                 <Stack.Screen options={headerStyle} name="Início" component={Tabs} />
                 <Stack.Screen options={headerStyle} name="Gastos" component={Gastos} />
+                <Stack.Screen options={headerStyle} name="Histórico" component={Historico} />
                 <Stack.Screen options={headerStyle} name="DadosVeiculo" component={DadosVeiculo} />
                 <Stack.Screen options={headerStyle} name="Outros" component={GastosOutros} />
                 <Stack.Screen options={headerStyle} name="Combustível" component={GastosCombustivel} />
