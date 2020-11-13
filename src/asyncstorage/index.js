@@ -1,11 +1,11 @@
 import AsyncStorage from '@react-native-community/async-storage';
 
-export async function getStorage(key) {
+export async function getStorage(key) { 
     try {
         const value = await AsyncStorage.getItem(key);
 
         if (value === null) {
-            return '[]';
+            return "[]";
         }
 
         if (value !== null) {
